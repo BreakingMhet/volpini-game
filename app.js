@@ -15,6 +15,11 @@ new Vue({
                 attack: "Tecnica Marketing Superiore",
                 image: "images/daniele.png",
             },
+            {
+                name: "Pietro",
+                attack: "Urlo Euforico",
+                image: "images/pietro.png",
+            },
         ],
         chose: "-1",
         players: [
