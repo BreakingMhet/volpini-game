@@ -1,3 +1,4 @@
+
 new Vue({
     el: '#app',
     data: {
@@ -8,7 +9,7 @@ new Vue({
                 attack: "Hype Lamento",
                 image: "images/matteo.png",
             },
-
+            
             {
                 name: "Daniele",
                 attack: "Tecnica Marketing Superiore",
@@ -21,12 +22,14 @@ new Vue({
                 name: "",
                 attack: "",
                 image: "",
+                health: 100,
             },
 
             {
                 name: "",
                 attack: "",
                 image: "",
+                health: 100,
             },
         ]
     },
@@ -61,6 +64,50 @@ new Vue({
                 },
             ];
             this.chose = "-1";
+        },
+
+        fight: function() {
+            setInterval(function(){
+
+            }, 2000);
+            while(this.players[1].health>0 && this.players[0].health>0)
+            {
+                //Player 1 attacks Player 2
+                var life = Math.floor(Math.random() * 60) + 1;
+                this.players[1].health -= life;
+                alert(this.players[0].name + " ha utilizzato " + this.players[0].attack + " contro " + this.players[1].name + "!");
+
+                //Player 2 attacks Player 1
+                var life = Math.floor(Math.random() * 60) + 1;
+                this.players[0].health -= life;
+                alert(this.players[1].name + " ha utilizzato " + this.players[1].attack + " contro " + this.players[0].name + "!");
+
+                if(this.players[0].health<0)
+                    this.players[0].health = 0;
+
+                if(this.players[1].health<0)
+                    this.players[1].health = 0;
+                
+            }
+
+            if(this.players[0].health<=0)
+            {
+                alert(this.players[1].name + " ha vinto una canna da Filippo!");
+            }
+            else if(this.players[1].health<=0)
+            {
+                alert(this.players[0].name + " ha vinto una canna da Filippo!");
+            } 
+        },
+
+        nascondi: function() {
+            $("#choose").addClass("nascondi");
+            $("#startGame").addClass("nascondi");
+            $("#reset").addClass("nascondi");
+        },
+
+        togliNascondi: function(){
+            $(".health-bar").removeClass("nascondi");
         }
     }
 });

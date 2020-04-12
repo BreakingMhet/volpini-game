@@ -12,3 +12,18 @@
     border: solid 2px orangered;
     display: inline-block;
 }
+
+.nascondi {
+    display: none;
+}
+
+.health-bar {
+    width: 100px;
+    border: 2px solid #000;
+    margin: 0 auto 20px auto;
+}
+
+.health-bar div {
+    height: 20px;
+    background-color: green;
+}
