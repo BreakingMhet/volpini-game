@@ -40,7 +40,7 @@
                 <div class="columns">
                     <div v-for="fox in foxes">
                         <div class="column is-one-fifths">
-                            <div class="card" @click="mostra(fox)">
+                            <div class="card" @click="mostra(fox)" :id="fox.name">
                                 <header class="card-header">
                                     <p class="card-header-title">
                                         {{fox.name}}
@@ -61,5 +61,18 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="app.js"></script>
+    <script>
+        //sounds
+        $(document).ready(function(){
+            $(".card").click(function(event){
+                if(event.target.offsetParent.id == "Daniele")
+                {
+                    audio = new Audio("sounds/pietro.m4a");
+                    audio.play();
+                }
+            });
+        });
+        
+    </script>
 </body>
 </html>
